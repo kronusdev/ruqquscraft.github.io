@@ -2199,6 +2199,8 @@ input, select, textarea {
 			margin: 0;
 			display: inline-block;
 			vertical-align: middle;
+			border: 2px #483949;
+			border-radius: 20px;
 		}
 
 		#header header {
@@ -3059,6 +3061,7 @@ input, select, textarea {
 					padding-top: 1.5em;
 					padding-left: 1em;
 					padding-right: 1em;
+					
 				}
 
 				#header header > p {
