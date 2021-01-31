@@ -2055,7 +2055,7 @@ input, select, textarea {
 	.button {
 		position: relative;
 		display: inline-block;
-		background: #df7366;
+		background: #bd0de0;
 		color: #fff;
 		text-align: center;
 		border-radius: 0.5em;
@@ -2208,12 +2208,21 @@ input, select, textarea {
 			#header header > p {
 				font-size: 1.25em;
 				margin: 0;
+				padding: 10px;
+				background: rgba(149, 13, 167, 0.73);
+				border-radius: 20px;
 			}
 
 		#header h1 {
 			color: #fff;
 			font-size: 3em;
 			line-height: 1em;
+			padding: 10px;
+			background: rgba(149, 13, 167, 0.73);
+			border-radius: 20px;
+			min-width: 1px;
+
+			width: auto;
 		}
 
 			#header h1 a {
@@ -2253,6 +2262,9 @@ input, select, textarea {
 
 		body.homepage #header h1 {
 			font-size: 4em;
+			background:  rgba(149, 13, 167, 0.73);
+			min-width: 1px;
+			width: auto;
 		}
 
 		body.homepage #header:after {
@@ -3063,6 +3075,9 @@ input, select, textarea {
 
 				#header h1 {
 					font-size: 1.75em;
+					background:  rgba(149, 13, 167, 0.73);
+					min-width: 1px;
+					width: auto;
 				}
 
 				#header hr {
