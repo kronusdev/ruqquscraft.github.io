@@ -2176,7 +2176,7 @@ input, select, textarea {
 
 	#header {
 		position: relative;
-		background-image: url("../../images/ruqqie_island.png");
+		background-image: url("../../images/spawn_banner.jpg");
 		background-size: cover;
 		background-position: center center;
 		background-attachment: fixed;
@@ -2214,6 +2214,8 @@ input, select, textarea {
 			color: rgb(153, 13, 158);
 			font-size: 3em;
 			line-height: 1em;
+			box-shadow: #483949;
+			box-sizing: border-box;
 		}
 
 			#header h1 a {
