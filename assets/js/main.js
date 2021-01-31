@@ -1,5 +1,5 @@
 /*
-	Hyperspace by HTML5 UP
+	Helios by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,20 +8,25 @@
 
 	var	$window = $(window),
 		$body = $('body'),
-		$sidebar = $('#sidebar');
+		settings = {
+
+			// Carousels
+				carousels: {
+					speed: 4,
+					fadeIn: true,
+					fadeDelay: 250
+				},
+
+		};
 
 	// Breakpoints.
 		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
+			wide:      [ '1281px',  '1680px' ],
+			normal:    [ '961px',   '1280px' ],
+			narrow:    [ '841px',   '960px'  ],
+			narrower:  [ '737px',   '840px'  ],
+			mobile:    [ null,      '736px'  ]
 		});
-
-	// Hack: Enable IE flexbox workarounds.
-		if (browser.name == 'ie')
-			$body.addClass('is-ie');
 
 	// Play initial animations on page load.
 		$window.on('load', function() {
@@ -30,161 +35,183 @@
 			}, 100);
 		});
 
-	// Forms.
+	// Dropdowns.
+		$('#nav > ul').dropotron({
+			mode: 'fade',
+			speed: 350,
+			noOpenerFade: true,
+			alignment: 'center'
+		});
 
-		// Hack: Activate non-input submits.
-			$('form').on('click', '.submit', function(event) {
+	// Scrolly.
+		$('.scrolly').scrolly();
 
-				// Stop propagation, default.
-					event.stopPropagation();
-					event.preventDefault();
+	// Nav.
 
-				// Submit form.
-					$(this).parents('form').submit();
+		// Button.
+			$(
+				'<div id="navButton">' +
+					'<a href="#navPanel" class="toggle"></a>' +
+				'</div>'
+			)
+				.appendTo($body);
 
-			});
+		// Panel.
+			$(
+				'<div id="navPanel">' +
+					'<nav>' +
+						$('#nav').navList() +
+					'</nav>' +
+				'</div>'
+			)
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					target: $body,
+					visibleClass: 'navPanel-visible'
+				});
 
-	// Sidebar.
-		if ($sidebar.length > 0) {
+	// Carousels.
+		$('.carousel').each(function() {
 
-			var $sidebar_a = $sidebar.find('a');
+			var	$t = $(this),
+				$forward = $('<span class="forward"></span>'),
+				$backward = $('<span class="backward"></span>'),
+				$reel = $t.children('.reel'),
+				$items = $reel.children('article');
 
-			$sidebar_a
-				.addClass('scrolly')
-				.on('click', function() {
+			var	pos = 0,
+				leftLimit,
+				rightLimit,
+				itemWidth,
+				reelWidth,
+				timerId;
 
-					var $this = $(this);
+			// Items.
+				if (settings.carousels.fadeIn) {
 
-					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
-							return;
+					$items.addClass('loading');
 
-					// Deactivate all links.
-						$sidebar_a.removeClass('active');
+					$t.scrollex({
+						mode: 'middle',
+						top: '-20vh',
+						bottom: '-20vh',
+						enter: function() {
 
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-						$this
-							.addClass('active')
-							.addClass('active-locked');
+							var	timerId,
+								limit = $items.length - Math.ceil($window.width() / itemWidth);
 
-				})
-				.each(function() {
+							timerId = window.setInterval(function() {
+								var x = $items.filter('.loading'), xf = x.first();
 
-					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
+								if (x.length <= limit) {
 
-					// No section for this link? Bail.
-						if ($section.length < 1)
-							return;
+									window.clearInterval(timerId);
+									$items.removeClass('loading');
+									return;
 
-					// Scrollex.
-						$section.scrollex({
-							mode: 'middle',
-							top: '-20vh',
-							bottom: '-20vh',
-							initialize: function() {
+								}
 
-								// Deactivate section.
-									$section.addClass('inactive');
+								xf.removeClass('loading');
 
-							},
-							enter: function() {
+							}, settings.carousels.fadeDelay);
 
-								// Activate section.
-									$section.removeClass('inactive');
+						}
+					});
 
-								// No locked links? Deactivate all links and activate this section's one.
-									if ($sidebar_a.filter('.active-locked').length == 0) {
+				}
 
-										$sidebar_a.removeClass('active');
-										$this.addClass('active');
+			// Main.
+				$t._update = function() {
+					pos = 0;
+					rightLimit = (-1 * reelWidth) + $window.width();
+					leftLimit = 0;
+					$t._updatePos();
+				};
 
-									}
+				$t._updatePos = function() { $reel.css('transform', 'translate(' + pos + 'px, 0)'); };
 
-								// Otherwise, if this section's link is the one that's locked, unlock it.
-									else if ($this.hasClass('active-locked'))
-										$this.removeClass('active-locked');
+			// Forward.
+				$forward
+					.appendTo($t)
+					.hide()
+					.mouseenter(function(e) {
+						timerId = window.setInterval(function() {
+							pos -= settings.carousels.speed;
+
+							if (pos <= rightLimit)
+							{
+								window.clearInterval(timerId);
+								pos = rightLimit;
+							}
+
+							$t._updatePos();
+						}, 10);
+					})
+					.mouseleave(function(e) {
+						window.clearInterval(timerId);
+					});
+
+			// Backward.
+				$backward
+					.appendTo($t)
+					.hide()
+					.mouseenter(function(e) {
+						timerId = window.setInterval(function() {
+							pos += settings.carousels.speed;
+
+							if (pos >= leftLimit) {
+
+								window.clearInterval(timerId);
+								pos = leftLimit;
 
 							}
-						});
+
+							$t._updatePos();
+						}, 10);
+					})
+					.mouseleave(function(e) {
+						window.clearInterval(timerId);
+					});
+
+			// Init.
+				$window.on('load', function() {
+
+					reelWidth = $reel[0].scrollWidth;
+
+					if (browser.mobile) {
+
+						$reel
+							.css('overflow-y', 'hidden')
+							.css('overflow-x', 'scroll')
+							.scrollLeft(0);
+						$forward.hide();
+						$backward.hide();
+
+					}
+					else {
+
+						$reel
+							.css('overflow', 'visible')
+							.scrollLeft(0);
+						$forward.show();
+						$backward.show();
+
+					}
+
+					$t._update();
+
+					$window.on('resize', function() {
+						reelWidth = $reel[0].scrollWidth;
+						$t._update();
+					}).trigger('resize');
 
 				});
 
-		}
-
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000,
-			offset: function() {
-
-				// If <=large, >small, and sidebar is present, use its height as the offset.
-					if (breakpoints.active('<=large')
-					&&	!breakpoints.active('<=small')
-					&&	$sidebar.length > 0)
-						return $sidebar.height();
-
-				return 0;
-
-			}
 		});
-
-	// Spotlights.
-		$('.spotlights > section')
-			.scrollex({
-				mode: 'middle',
-				top: '-10vh',
-				bottom: '-10vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					$image = $this.find('.image'),
-					$img = $image.find('img'),
-					x;
-
-				// Assign image.
-					$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set background position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide <img>.
-					$img.hide();
-
-			});
-
-	// Features.
-		$('.features')
-			.scrollex({
-				mode: 'middle',
-				top: '-20vh',
-				bottom: '-20vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			});
 
 })(jQuery);
