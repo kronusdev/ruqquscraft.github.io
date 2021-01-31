@@ -2676,8 +2676,8 @@ input, select, textarea {
 				#header .inner {
 					padding-left: 2em;
 					padding-right: 2em;
-					border: 2px purple;
-					border-style: groove;
+					border: 2px #483949;
+					border-radius: 20px;
 				}
 
 		/* Banner */
