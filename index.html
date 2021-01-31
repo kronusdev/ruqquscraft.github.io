@@ -23,7 +23,7 @@
 							<header>
 								<h1>Ruqquscraft</h1>
 								<hr />
-								<p>The Minecraft server you've always been looking for! Minimal plugins, simple rules, a friendly community!</p>
+								<p>The Minecraft server you've always been looking for! <br>Minimal plugins, simple rules, a friendly community!</p>
 							</header>
 							<footer>
 								<a href="#banner" class="button circled scrolly">Start</a>
@@ -54,8 +54,71 @@
 				<section id="banner">
 					<header>
 						<h2>Welcome to <strong>Ruqquscraft</strong>!</h2>
+						
+						<p style="text-align: center;"><button id="copyButton">ruqquscraft.net</button></p>
+						<script>
+						function copyText(text){
+						  function selectElementText(element) {
+							if (document.selection) {
+							  var range = document.body.createTextRange();
+							  range.moveToElementText(element);
+							  range.select();
+							} else if (window.getSelection) {
+							  var range = document.createRange();
+							  range.selectNode(element);
+							  window.getSelection().removeAllRanges();
+							  window.getSelection().addRange(range);
+							}
+						  }
+						  var element = document.createElement('DIV');
+						  element.textContent = text;
+						  document.body.appendChild(element);
+						  selectElementText(element);
+						  document.execCommand('copy');
+						  element.remove();
+						}
+						
+						var btn = document.getElementById('copyButton');
+						btn.addEventListener('click', function(){
+						  copyText("ruqquscraft.net");
+						  btn.innerHTML = "Copied!";
+						})
+						
+						
+						document.getElementById("copyButton").onmouseover = function() {mouseOver()};
+						document.getElementById("copyButton").onmouseout = function() {mouseOut()};
+						
+						function mouseOver() {
+							document.getElementById("copyButton").innerHTML = "ruqquscraft.net";
+						}
+						
+						function mouseOut() {
+							document.getElementById("copyButton").innerHTML = "Click to copy server address!";
+						}
+						</script>
+						
+						<style>
+						#copyButton {
+							border: none;
+							color: white;
+							background-color: #7F00FF;
+							padding: 16px 16px;
+							text-align: center;
+							font-size: 16px;
+							margin: 4px 2px;
+							-webkit-transition-duration: 0.4s; /* Safari */
+							transition-duration: 0.4s;
+							cursor: pointer;
+							border-radius: 4px;
+							width: 25%;
+						}
+						
+						#copyButton:hover {
+							background-color: #7F00FF;
+							color: white;
+						}
+						</style>
 
-						<h2>Join today at: <strong>ruqquscraft.net</strong></h2>
 
 						<h3>
 								<strong>Community Showcase</strong>
@@ -129,13 +192,13 @@
 								To maintain a friendly community and server experience for all, please follow the following rules.
 							</p>
 						</header>
-							<div class="rule-list" style ="text-align: center;">
-					
-									1. Be kind to your fellow player <br>
-									2. some other rule <br>
-									3. some other rule <br>
-						
-							</div>
+							<ol class="text-center" style="list-style-position: inside">
+								<li style="text-align: center;">Be kind to your fellow player</li>
+								<li style="text-align: center;">No griefing, no hacked clients</li>
+								<li style="text-align: center;">No asking for OP or a staff position</li>
+								<li style="text-align: center;">No spamming, No advertising of any kind</li>
+								<li style="text-align: center;">No chunkloaders or redstone contraptions designed to cause lag
+							</ol>	
 						<footer>
 							<a href="#" class="button">Continue Reading</a>
 						</footer>
