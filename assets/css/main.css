@@ -2520,8 +2520,18 @@ input, select, textarea {
 		position: relative;
 		overflow: hidden;
 		padding: 2em 0 2em 0;
-		margin-bottom: 0;
+		margin-bottom: 40px;
+		background-color: #7F00FF;
 	}
+		.carousel #title-header{
+			text-align: center;
+			padding: 20px 20px;
+			margin-bottom: 40px;
+		}
+
+		.carousel #title-text{
+			color: #fff;
+		}
 
 		.carousel .forward, .carousel .backward {
 			position: absolute;
@@ -2561,7 +2571,7 @@ input, select, textarea {
 			}
 
 			.carousel .forward:hover:before, .carousel .backward:hover:before {
-				background-color: rgba(239, 131, 118, 0.75);
+				background-color: rgba(201, 37, 223, 0.75);
 			}
 
 		.carousel .forward {
@@ -2596,7 +2606,7 @@ input, select, textarea {
 			white-space: nowrap;
 			position: relative;
 			-webkit-overflow-scrolling: touch;
-			padding: 0 2em 0 2em;
+			padding: 0 10em 0 10em;
 		}
 
 		.carousel article {
@@ -2605,7 +2615,7 @@ input, select, textarea {
 			background: #fff;
 			text-align: center;
 			padding: 0 1em 3em 1em;
-			margin: 0 2em 0 0;
+			margin: 0 2em 2em 0;
 			white-space: normal;
 			opacity: 1.0;
 			-moz-transition: opacity 0.75s ease-in-out;
