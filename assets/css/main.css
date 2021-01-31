@@ -2211,15 +2211,13 @@ input, select, textarea {
 			}
 
 		#header h1 {
-			color: rgb(153, 13, 158);
+			color: #fff;
 			font-size: 3em;
 			line-height: 1em;
 		}
 
 			#header h1 a {
 				color: inherit;
-				border: 4px #483949;
-				border-radius: 20px;
 			}
 
 		#header .button {
@@ -2676,8 +2674,6 @@ input, select, textarea {
 				#header .inner {
 					padding-left: 2em;
 					padding-right: 2em;
-					border: 2px #483949;
-					border-radius: 20px;
 				}
 
 		/* Banner */
@@ -3059,7 +3055,6 @@ input, select, textarea {
 					padding-top: 1.5em;
 					padding-left: 1em;
 					padding-right: 1em;
-
 				}
 
 				#header header > p {
