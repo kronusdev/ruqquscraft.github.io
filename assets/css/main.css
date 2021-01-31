@@ -2199,8 +2199,6 @@ input, select, textarea {
 			margin: 0;
 			display: inline-block;
 			vertical-align: middle;
-			border: 2px #483949;
-			border-radius: 20px;
 		}
 
 		#header header {
@@ -2216,8 +2214,8 @@ input, select, textarea {
 			color: rgb(153, 13, 158);
 			font-size: 3em;
 			line-height: 1em;
-			box-shadow: #483949;
-			box-sizing: ;
+			border: 2px #483949;
+			border-radius: 20px;
 		}
 
 			#header h1 a {
@@ -3061,7 +3059,7 @@ input, select, textarea {
 					padding-top: 1.5em;
 					padding-left: 1em;
 					padding-right: 1em;
-					
+
 				}
 
 				#header header > p {
