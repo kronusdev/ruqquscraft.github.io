@@ -2214,12 +2214,12 @@ input, select, textarea {
 			color: rgb(153, 13, 158);
 			font-size: 3em;
 			line-height: 1em;
-			border: 2px #483949;
-			border-radius: 20px;
 		}
 
 			#header h1 a {
 				color: inherit;
+				border: 4px #483949;
+				border-radius: 20px;
 			}
 
 		#header .button {
