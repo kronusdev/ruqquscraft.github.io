@@ -3173,6 +3173,7 @@ input, select, textarea {
 		background-color: #7E22CE;
 		text-align: center;
 		font-size: 24px;
+		padding: 12px 24px;
 		margin: auto;
 		-webkit-transition-duration: 0.4s; /* Safari */
 		transition-duration: 0.4s;
