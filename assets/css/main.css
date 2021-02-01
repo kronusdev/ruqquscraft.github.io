@@ -37,6 +37,12 @@ ol, ul {
 	list-style: none;
 }
 
+.text-rules {
+	display: inline-block;
+	padding-left: 40%;
+	font-weight: 600;
+}
+
 blockquote, q {
 	quotes: none;
 }
