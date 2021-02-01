@@ -3166,3 +3166,23 @@ input, select, textarea {
 					}
 
 	}
+
+	#copyButton {
+		border: none;
+		color: white;
+		background-color: #7E22CE;
+		padding: 16px 16px;
+		text-align: center;
+		font-size: 16px;
+		margin: 4px 2px;
+		-webkit-transition-duration: 0.4s; /* Safari */
+		transition-duration: 0.4s;
+		cursor: pointer;
+		border-radius: 4px;
+		width: 25%;
+	}
+	
+	#copyButton:hover {
+		background-color: #7E22CE;
+		color: white;
+	}
