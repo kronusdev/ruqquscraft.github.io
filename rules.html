@@ -6,13 +6,13 @@
 -->
 <html>
 	<head>
-		<title>Ruqquscraft</title>
+		<title>Rules</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="homepage is-preload">
+	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -21,9 +21,7 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1>Ruqquscraft</h1>
-								<hr />
-								<p>The Minecraft server you've always been looking for. <br> Minimal plugins, simple rules, a friendly community!</p>
+								<h1><a href="index.html" id="logo">Ruqquscraft</a></h1>
 							</header>
 						</div>
 
@@ -39,173 +37,62 @@
 										<li><a href="https://ruqqus.com/+Ruqquscraft/" target="_blank" rel="noopener noreferrer">Ruqqus Guild</a></li>
 									</ul>
 								</li>
-								<li><a href="rules.html">Rules</a></li>
+								<li><a href="no-sidebar.html">Rules</a></li>
 							</ul>
 						</nav>
 
 				</div>
 
-			<!-- Banner -->
-				<section id="banner">
-					<header>
-						<h2>Welcome to <strong>Ruqquscraft</strong>!</h2>
-						
-						<p style="text-align: center;"><button id="copyButton">ruqquscraft.net</button></p>
-						<script>
-						function copyText(text){
-						  function selectElementText(element) {
-							if (document.selection) {
-							  var range = document.body.createTextRange();
-							  range.moveToElementText(element);
-							  range.select();
-							} else if (window.getSelection) {
-							  var range = document.createRange();
-							  range.selectNode(element);
-							  window.getSelection().removeAllRanges();
-							  window.getSelection().addRange(range);
-							}
-						  }
-						  var element = document.createElement('DIV');
-						  element.textContent = text;
-						  document.body.appendChild(element);
-						  selectElementText(element);
-						  document.execCommand('copy');
-						  element.remove();
-						}
-						
-						var btn = document.getElementById('copyButton');
-						btn.addEventListener('click', function(){
-						  copyText("ruqquscraft.net");
-						  btn.innerHTML = "Copied!";
-						})
-						
-						
-						document.getElementById("copyButton").onmouseover = function() {mouseOver()};
-						document.getElementById("copyButton").onmouseout = function() {mouseOut()};
-						
-						function mouseOver() {
-							document.getElementById("copyButton").innerHTML = "Click to copy server address!";
-						}
-						
-						function mouseOut() {
-							document.getElementById("copyButton").innerHTML = "ruqquscraft.net";
-						}
-						</script>
-						
-						<style>
-						#copyButton {
-							border: none;
-							color: white;
-							background-color: #7E22CE;
-							padding: 16px 16px;
-							text-align: center;
-							font-size: 16px;
-							margin: 4px 2px;
-							-webkit-transition-duration: 0.4s; /* Safari */
-							transition-duration: 0.4s;
-							cursor: pointer;
-							border-radius: 4px;
-							width: 25%;
-						}
-						
-						#copyButton:hover {
-							background-color: #7E22CE;
-							color: white;
-						}
-						</style>
-					</header>
-				</section>
-
-			<!-- Carousel -->
-				<section class="carousel">
-					
-					<h2 id="title-header"> <strong id="title-text">Community Showcase</strong> </h2>
-					
-					<div class="reel">
-
-						<article>
-							<a href="#" class="image featured"><img src="images/eiso_castle.jpg" alt="" /></a>
-							<header>
-								<h3>Eisotopius' Castle</h3>
-							</header>
-							<p>An imposing castle built close to spawn by Eisotopius0.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="images/ruqqie_island.png" alt="" /></a>
-							<header>
-								<h3>Ruqqie's Vacation</h3>
-							</header>
-							<p>A cute rendition of our lovable server mascot, Ruqqie, built by jBoi76.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="images/winterside_view.jpg" alt="" /></a>
-							<header>
-								<h3>Winterside</h3>
-							</header>
-							<p>A nice view in Winterside, one of our first player built communities!</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="images/mush_house.jpg" alt="" /></a>
-							<header>
-								<h3>Mushroom House</h3>
-							</header>
-							<p>Mushroom themed house built by Kronus_, the server owner.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="images/paltomo_bridge.jpg" alt="" /></a>
-							<header>
-								<h3>Paltomo's Bridge</h3>
-							</header>
-							<p>Rustic bridge by Paltomo, leads to Winterside!</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="images/slime_island.jpg" alt="" /></a>
-							<header>
-								<h3>Slime Island</h3>
-							</header>
-							<p>A slime shrine built in the middle of the sea by Timred! So cute!</p>
-						</article>
-
-					</div>
-				</section>
-
 			<!-- Main -->
-				<div class="wrapper style2">
-
-					<article id="main" class="container special">
-						<a href="#" class="image featured"><img src="images/ss_ruqqie.jpg" alt="" /></a>
-						<header>
-							<h2>Server Rules</h2>
-							<p>
-								To maintain a friendly community and server experience for all, please follow the following rules.
-							</p>
-						</header>
-							<ol class="text-center" style="list-style-position: inside">
-								<li style="text-align: center;">Be kind to your fellow player</li>
-								<li style="text-align: center;">No griefing, no hacked clients</li>
-								<li style="text-align: center;">No asking for OP or a staff position</li>
-								<li style="text-align: center;">No spamming, No advertising of any kind</li>
-								<li style="text-align: center;">No chunkloaders or redstone contraptions designed to cause lag
-							</ol>	
-						<footer>
-						</footer>
-					</article>
-
-				</div>
-
-			<!-- Features -->
 				<div class="wrapper style1">
 
-					<section id="features" class="container special">
-						<header>
-							<h2>Morbi ullamcorper et varius leo lacus</h2>
-							<p>Ipsum volutpat consectetur orci metus consequat imperdiet duis integer semper magna.</p>
-						</header>
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2>Server Rules</h2>
+								<p>
+									To maintain a friendly community and server experience for all, please follow the following rules.
+								</p>
+							</header>
+							<a href="#" class="image featured"><img src="images/ss_ruqqie.jpg" alt="" /></a>
+							<p>
+								Commodo id natoque malesuada sollicitudin elit suscipit. Curae suspendisse mauris posuere accumsan massa
+								posuere lacus convallis tellus interdum. Amet nullam fringilla nibh nulla convallis ut venenatis purus
+								lobortis. Auctor etiam porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum
+								consequat integer interdum integer purus sapien. Nibh eleifend nulla nascetur pharetra commodo mi augue
+								interdum tellus. Ornare cursus augue feugiat sodales velit lorem. Semper elementum ullamcorper lacinia
+								natoque aenean scelerisque vel lacinia mollis quam sodales congue.
+							</p>
+							<section>
+								<header>
+									<h3>Ultrices tempor sagittis nisl</h3>
+								</header>
+								<p>
+									Nascetur volutpat nibh ullamcorper vivamus at purus. Cursus ultrices porttitor sollicitudin imperdiet
+									at pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis
+									feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit
+									fringilla consequat dis arcu. Pellentesque mus tempor vitae pretium sodales porttitor lacus. Phasellus
+									egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
+								</p>
+								<p>
+									Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed etiam parturient
+									orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras rutrum consectetur
+									ut penatibus fermentum nibh erat malesuada varius.
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>Augue euismod feugiat tempus</h3>
+								</header>
+								<p>
+									Pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis
+									feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit
+									ut nunc urna volutpat donec cubilia commodo risus morbi. Lobortis vestibulum velit malesuada ante
+									egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
+								</p>
+							</section>
+						</article>
+						<hr />
 						<div class="row">
 							<article class="col-4 col-12-mobile special">
 								<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
@@ -238,7 +125,7 @@
 								</p>
 							</article>
 						</div>
-					</section>
+					</div>
 
 				</div>
 
