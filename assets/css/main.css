@@ -93,8 +93,8 @@ input, select, textarea {
 		color: #5b5b5b;
 		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: 300;
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -111,8 +111,8 @@ input, select, textarea {
 	input, textarea, select {
 		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: 300;
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -3180,9 +3180,13 @@ input, select, textarea {
 		cursor: pointer;
 		border-radius: 4px;
 		width: auto;
+		font-family: 'Lato', sans-serif;
+		font-weight: 700;
 	}
 	
 	#copyButton:hover {
 		background-color: #7E22CE;
 		color: white;
+		font-family: 'Lato', sans-serif;
+		font-weight: 700;
 	}
