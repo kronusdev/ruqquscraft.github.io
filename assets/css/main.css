@@ -141,7 +141,6 @@ input, select, textarea {
 
 	h4 {
 		font-size: 1em;
-		margin: 0 0 0.25em 0;
 	}
 
 	strong, b {
@@ -2879,7 +2878,7 @@ input, select, textarea {
 				display: block;
 				padding: 0;
 				line-height: 3em;
-				width: 100%;
+				width: auto;
 			}
 
 		/* Nav */
